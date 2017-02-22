@@ -1,0 +1,192 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.w-container {
+  font-family: 'Roboto', sans-serif;
+  color: #a5a7a9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #59abfc 0%, #32d3d3 100%);
+}
+
+.w-wallet {
+  display: flex;
+  width: 100%;
+  max-width: 700px;
+  min-height: 600px;
+  margin: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px 0px rgba(0,0,0,.1);
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.w-cards-container {
+  flex: 0 0 300px;
+  background: #fafbfb;
+  padding: 30px;
+}
+
+.w-transactions-container {
+  flex: 1 0 auto;
+  padding: 30px;
+}
+
+.w-title {
+  font-size: 30px;
+  font-weight: lighter;
+  color: #484848;
+  margin: 0 0 20px;
+}
+
+.w-subtitle {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0 0 5px;
+}
+
+.w-card {
+  display: block;
+  width: 100%;
+  height: 115px;
+  border: 2px solid #f2f2f2;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  background: #fff;
+  -webkit-appearance: none !important;
+  font-size: 16px;
+  color: inherit;
+  transition: all .5s;
+}
+
+.w-card:focus,
+.w-card:hover {
+  border-color:#c7c7c7;
+  box-shadow: 0 0 10px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+.w-card-active {
+  border-color: #26a0fc;
+}
+
+.w-card-active:focus,
+.w-card-active:hover {
+  border-color: #025c9e;
+}
+
+.w-card-dashed {
+  background: none;
+  border-color: #c7c7c7;
+  border-style: dashed;
+  color: #c7c7c7;
+}
+
+.w-card-dashed:focus,
+.w-card-dashed:hover {
+  border-color: #7d7d7d;
+  color: #7d7d7d;
+  box-shadow: none;
+}
+
+.w-card-type {
+  float: right;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.w-card-logo {
+  display: block;
+  height: 20px;
+  margin-bottom: 25px;
+}
+
+.w-card-number {
+  color: #484848;
+  word-spacing: 10px;
+}
+
+.w-icon {
+  display: inline-block;
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.05em;
+}
+
+.w-icon-lg {
+  font-size: 2em;
+}
+
+.w-color-green {
+  color: #70C900;
+}
+
+.w-color-red {
+  color: #F95E61;
+}
+
+.w-card-balance-container {
+  display: flex;
+  align-items: center;
+}
+
+.w-card-balance-label {
+  flex: 1 0 auto;
+}
+
+.w-card-balance {
+  flex: 0 0 auto;
+  font-size: 30px;
+  font-weight: normal;
+  color: #26a0fc;
+}
+
+.w-transactions-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.w-transaction {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #b0b2b3;
+  padding: 20px 0;
+}
+
+.w-transaction:first-child {
+  border-top: 1px solid #b0b2b3;
+}
+
+.w-transaction-type {
+  flex: 0 0 auto;
+  font-size: 20px;
+}
+
+.w-transaction-main {
+  flex: 1 0 auto;
+  padding: 0 10px;
+}
+
+.w-transaction-right {
+  flex: 0 1 auto;
+  text-align: right;
+}
+
+.w-transaction-reference {
+  color: #484848;
+}
+
+.w-transaction-date,
+.w-transaction-group {
+  font-size: 14px;
+  font-weight: lighter;
+}

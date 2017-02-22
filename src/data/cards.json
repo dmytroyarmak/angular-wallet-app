@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "type": "DEBIT",
+    "cardNumber": "**** **** **** 8763",
+    "balance": 2342.51
+  },
+  {
+    "id": 2,
+    "type": "CREDIT",
+    "cardNumber": "**** **** **** 5230",
+    "balance": 1223.40
+  }
+]

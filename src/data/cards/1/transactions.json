@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "reference": "Decore putent nostrud",
+    "date": "2017-02-22T20:33:44.648Z",
+    "type": "DEBIT",
+    "group": "Transfer",
+    "amount": 120
+  },
+  {
+    "id": 2,
+    "reference": "Viris delicatissimi nec",
+    "date": "2017-02-21T12:53:44.648Z",
+    "type": "CREDIT",
+    "group": "Books",
+    "amount": 3.99
+  },
+  {
+    "id": 3,
+    "reference": "Aliquam definiebas",
+    "date": "2017-02-19T10:12:44.648Z",
+    "type": "CREDIT",
+    "group": "Food",
+    "amount": 9.99
+  },
+  {
+    "id": 4,
+    "reference": "Eu dicam soleat",
+    "date": "2017-02-19T05:53:44.648Z",
+    "type": "DEBIT",
+    "group": "Wages",
+    "amount": 12.45
+  },
+  {
+    "id": 5,
+    "reference": "Et mel doming suscipit",
+    "date": "2017-02-18T10:13:44.648Z",
+    "type": "CREDIT",
+    "group": "Food",
+    "amount": 300.50
+  },
+  {
+    "id": 6,
+    "reference": "Utamur discere",
+    "date": "2017-02-17T19:42:44.648Z",
+    "type": "CREDIT",
+    "group": "Food",
+    "amount": 100
+  }
+]
