@@ -6,16 +6,11 @@
 
   angular
     .module('wallet')
-    .directive('wTransactionTypeIcon', function() {
-      return {
-        restrict: 'E',
-        scope: {
-          type: '<'
-        },
-        bindToController: true,
-        controller: TransactionTypeIconComponent,
-        controllerAs: '$ctrl',
-        templateUrl: './app/components/transaction-type-icon/transaction-type-icon.component.html'
-      };
+    .component('wTransactionTypeIcon', {
+      bindings: {
+        type: '<'
+      },
+      controller: TransactionTypeIconComponent,
+      templateUrl: './app/components/transaction-type-icon/transaction-type-icon.component.html'
     });
 }());

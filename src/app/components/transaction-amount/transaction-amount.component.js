@@ -6,16 +6,11 @@
 
   angular
     .module('wallet')
-    .directive('wTransactionAmount', function() {
-      return {
-        restrict: 'E',
-        scope: {
-          transaction: '<'
-        },
-        bindToController: true,
-        controller: TransactionAmountComponent,
-        controllerAs: '$ctrl',
-        templateUrl: './app/components/transaction-amount/transaction-amount.component.html'
-      };
+    .component('wTransactionAmount', {
+      bindings: {
+        transaction: '<'
+      },
+      controller: TransactionAmountComponent,
+      templateUrl: './app/components/transaction-amount/transaction-amount.component.html'
     });
 }());

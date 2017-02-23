@@ -37,14 +37,9 @@
 
   angular
     .module('wallet')
-    .directive('wWallet', function() {
-      return {
-        restrict: 'E',
-        scope: {},
-        bindToController: true,
-        controller: WalletComponent,
-        controllerAs: '$ctrl',
-        templateUrl: './app/components/wallet/wallet.component.html'
-      };
+    .component('wWallet', {
+      bindings: {},
+      controller: WalletComponent,
+      templateUrl: './app/components/wallet/wallet.component.html'
     });
 }());

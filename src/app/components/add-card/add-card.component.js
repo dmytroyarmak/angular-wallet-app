@@ -6,16 +6,11 @@
 
   angular
     .module('wallet')
-    .directive('wAddCard', function() {
-      return {
-        restrict: 'E',
-        scope: {
-          onAdd: '&'
-        },
-        bindToController: true,
-        controller: AddCardComponent,
-        controllerAs: '$ctrl',
-        templateUrl: './app/components/add-card/add-card.component.html'
-      };
+    .component('wAddCard', {
+      bindings: {
+        onAdd: '&'
+      },
+      controller: AddCardComponent,
+      templateUrl: './app/components/add-card/add-card.component.html'
     });
 }());

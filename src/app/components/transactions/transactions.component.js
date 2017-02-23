@@ -25,16 +25,11 @@
 
   angular
     .module('wallet')
-    .directive('wTransactions', function() {
-      return {
-        restrict: 'E',
-        scope: {
-          card: '<'
-        },
-        bindToController: true,
-        controller: TransactionsComponent,
-        controllerAs: '$ctrl',
-        templateUrl: './app/components/transactions/transactions.component.html'
-      };
+    .component('wTransactions', {
+      bindings: {
+        card: '<'
+      },
+      controller: TransactionsComponent,
+      templateUrl: './app/components/transactions/transactions.component.html'
     });
 }());

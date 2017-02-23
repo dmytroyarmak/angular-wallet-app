@@ -6,16 +6,11 @@
 
   angular
     .module('wallet')
-    .directive('wCardBalance', function() {
-      return {
-        restrict: 'E',
-        scope: {
-          balance: '<'
-        },
-        bindToController: true,
-        controller: CardBalanceComponent,
-        controllerAs: '$ctrl',
-        templateUrl: './app/components/card-balance/card-balance.component.html'
-      };
+    .component('wCardBalance', {
+      bindings: {
+        balance: '<'
+      },
+      controller: CardBalanceComponent,
+      templateUrl: './app/components/card-balance/card-balance.component.html'
     });
 }());
