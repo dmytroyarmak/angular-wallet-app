@@ -12,7 +12,9 @@
         scope: {
           balance: '<'
         },
+        bindToController: true,
         controller: CardBalanceComponent,
+        controllerAs: '$ctrl',
         templateUrl: './app/components/card-balance/card-balance.component.html'
       };
     });

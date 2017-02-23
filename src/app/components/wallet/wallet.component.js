@@ -1,36 +1,39 @@
 (function() {
   'use strict';
 
-  WalletComponent.$inject = ['$scope', 'walletService'];
-  function WalletComponent ($scope, walletService) {
-    $scope.cards = null;
-    $scope.selectedCard = null;
-    $scope.onSelectCard = onSelectCard;
-    $scope.onAddCard = onAddCard;
+  WalletComponent.$inject = ['walletService'];
+  function WalletComponent (walletService) {
+    this.walletService = walletService;
+    this.cards = null;
+    this.selectedCard = null;
+  }
 
-    walletService
+  WalletComponent.prototype.$onInit = function() {
+    var $ctrl = this;
+
+    this.walletService
       .getCards()
       .then(function(cards) {
-        $scope.cards = cards;
-        $scope.onSelectCard(cards[0]);
+        $ctrl.cards = cards;
+        $ctrl.onSelectCard(cards[0]);
       });
+  };
 
-    //////////
+  WalletComponent.prototype.onAddCard = function() {
+    var $ctrl = this;
 
-    function onAddCard() {
-      walletService
-        .addCard()
-        .then(function(card) {
-          $scope.cards = $scope.cards.concat(card);
-        });
+    this.walletService
+      .addCard()
+      .then(function(card) {
+        $ctrl.cards = $ctrl.cards.concat(card);
+      });
+  };
+
+  WalletComponent.prototype.onSelectCard = function(card) {
+    if (card !== this.selectedCard) {
+      this.selectedCard = card;
     }
-
-    function onSelectCard(card) {
-      if (card !== $scope.selectedCard) {
-        $scope.selectedCard = card;
-      }
-    }
-  }
+  };
 
   angular
     .module('wallet')
@@ -38,7 +41,9 @@
       return {
         restrict: 'E',
         scope: {},
+        bindToController: true,
         controller: WalletComponent,
+        controllerAs: '$ctrl',
         templateUrl: './app/components/wallet/wallet.component.html'
       };
     });

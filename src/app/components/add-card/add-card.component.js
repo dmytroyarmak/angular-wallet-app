@@ -12,7 +12,9 @@
         scope: {
           onAdd: '&'
         },
+        bindToController: true,
         controller: AddCardComponent,
+        controllerAs: '$ctrl',
         templateUrl: './app/components/add-card/add-card.component.html'
       };
     });

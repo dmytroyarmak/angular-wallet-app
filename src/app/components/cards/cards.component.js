@@ -1,17 +1,14 @@
 (function() {
   'use strict';
 
-  CardsComponent.$inject = ['$scope'];
-  function CardsComponent ($scope) {
-    $scope.cardAdded = false;
-    $scope.hideButtonAndNotifyParent = hideButtonAndNotifyParent;
+  CardsComponent.$inject = [];
+  function CardsComponent () {
+    this.cardAdded = false;
+  }
 
-    //////////
-
-    function hideButtonAndNotifyParent() {
-      $scope.cardAdded = true;
-      $scope.onAddCard();
-    }
+  CardsComponent.prototype.hideButtonAndNotifyParent = function() {
+    this.cardAdded = true;
+    this.onAddCard();
   }
 
   angular
@@ -25,7 +22,9 @@
           onSelectCard: '&',
           onAddCard: '&'
         },
+        bindToController: true,
         controller: CardsComponent,
+        controllerAs: '$ctrl',
         templateUrl: './app/components/cards/cards.component.html'
       };
     });

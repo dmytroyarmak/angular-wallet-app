@@ -1,25 +1,26 @@
 (function() {
   'use strict';
 
-  TransactionsComponent.$inject = ['$scope', 'walletService'];
-  function TransactionsComponent ($scope, walletService) {
-    $scope.transactions = null;
+  TransactionsComponent.$inject = ['walletService'];
+  function TransactionsComponent (walletService) {
+    this.walletService = walletService;
+    this.transactions = null;
+  }
 
-    $scope.$watch('card', function(card) {
-      if (card) {
-        getTransactions(card);
-      }
-    });
-
-    //////////
-
-    function getTransactions(card) {
-      walletService
-        .getTransactions(card.id)
-        .then(function(transactions) {
-          $scope.transactions = transactions;
-        });
+  TransactionsComponent.prototype.$onChanges = function(changes) {
+    if (changes.card && changes.card.currentValue) {
+      this.getTransactions(changes.card.currentValue);
     }
+  };
+
+  TransactionsComponent.prototype.getTransactions = function(card) {
+    var $ctrl = this;
+
+    this.walletService
+      .getTransactions(card.id)
+      .then(function(transactions) {
+        $ctrl.transactions = transactions;
+      });
   }
 
   angular
@@ -30,7 +31,9 @@
         scope: {
           card: '<'
         },
+        bindToController: true,
         controller: TransactionsComponent,
+        controllerAs: '$ctrl',
         templateUrl: './app/components/transactions/transactions.component.html'
       };
     });

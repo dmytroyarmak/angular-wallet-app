@@ -14,7 +14,9 @@
           isSelected: '<',
           onSelect: '&'
         },
+        bindToController: true,
         controller: CardComponent,
+        controllerAs: '$ctrl',
         templateUrl: './app/components/card/card.component.html'
       };
     });

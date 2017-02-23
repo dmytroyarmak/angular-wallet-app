@@ -12,7 +12,9 @@
         scope: {
           transaction: '<'
         },
+        bindToController: true,
         controller: TransactionAmountComponent,
+        controllerAs: '$ctrl',
         templateUrl: './app/components/transaction-amount/transaction-amount.component.html'
       };
     });
