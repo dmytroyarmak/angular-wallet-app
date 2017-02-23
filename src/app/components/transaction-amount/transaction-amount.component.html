@@ -1,0 +1,6 @@
+<div
+  class="w-transaction-balance"
+  ng-class="{'w-color-red': transaction.type === 'CREDIT', 'w-color-green': transaction.type === 'DEBIT'}"
+>
+  {{ transaction.amount | currency}}
+</div>

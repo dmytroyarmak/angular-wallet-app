@@ -1,11 +1,10 @@
 (function() {
   'use strict';
 
-  WalletController.$inject = ['$scope', 'walletService'];
-  function WalletController ($scope, walletService) {
+  WalletComponent.$inject = ['$scope', 'walletService'];
+  function WalletComponent ($scope, walletService) {
     $scope.cards = null;
     $scope.selectedCard = null;
-    $scope.transactions = null;
     $scope.cardAdded = false;
     $scope.onSelectCard = onSelectCard;
     $scope.onAddCard = onAddCard;
@@ -31,18 +30,17 @@
     function onSelectCard(card) {
       if (card !== $scope.selectedCard) {
         $scope.selectedCard = card;
-
-        walletService
-          .getTransactions(card.id)
-          .then(function(transactions) {
-            $scope.transactions = transactions;
-          });
       }
     }
   }
 
   angular
     .module('wallet')
-    .controller('WalletController', WalletController);
-
+    .directive('wWallet', function() {
+      return {
+        restrict: 'E',
+        controller: WalletComponent,
+        templateUrl: './app/components/wallet/wallet.component.html'
+      };
+    });
 }());

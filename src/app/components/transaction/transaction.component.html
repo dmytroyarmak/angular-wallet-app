@@ -1,0 +1,13 @@
+<div class="w-transaction">
+  <w-transaction-type-icon class="w-transaction-type"></w-transaction-type-icon>
+
+  <div class="w-transaction-main">
+    <div class="w-transaction-reference">{{ transaction.reference }}</div>
+    <div class="w-transaction-date">{{ transaction.date | date:'short' }}</div>
+  </div>
+
+  <div class="w-transaction-right">
+    <w-transaction-amount></w-transaction-amount>
+    <div class="w-transaction-group">{{ transaction.group }}</div>
+  </div>
+</div>

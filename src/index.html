@@ -7,85 +7,24 @@
   <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
   <link rel="stylesheet" href="./styles/main.css">
 </head>
-<body>
-  <div class="w-container" ng-app="wallet" ng-controller="WalletController">
-    <div class="w-wallet">
-      <div class="w-cards-container">
-        <h2 class="w-title">My Wallet</h2>
-        <div class="w-cards">
-          <button
-            ng-repeat="card in cards track by card.id"
-            type="button"
-            class="w-card"
-            ng-class="{'w-card-active': card === selectedCard}"
-            ng-click="onSelectCard(card)"
-          >
-            <div class="w-card-type">{{ card.type }}</div>
-            <img src="./media/visa-logo.svg" alt="VISA" class="w-card-logo">
-            <div class="w-card-number">{{ card.cardNumber }}</div>
-          </button>
+<body ng-app="wallet">
+  <w-wallet></w-wallet>
 
-          <button
-            ng-if="!cardAdded"
-            type="button"
-            class="w-card w-card-dashed"
-            ng-click="onAddCard()"
-          >
-            <svg class="w-icon w-icon-lg"><use xlink:href="#lnr-plus-circle"></use></svg>
-          </button>
-        </div>
-      </div>
-      <div class="w-transactions-container">
-        <div class="w-card-balance-container w-title">
-          <div class="w-card-balance-label">
-            Balance
-          </div>
-          <div class="w-card-balance">
-            {{ selectedCard.balance | currency }}
-          </div>
-        </div>
-
-        <h3 class="w-subtitle">Transactions</h3>
-        <ul class="w-transactions-list">
-          <li
-            ng-repeat="transaction in transactions track by transaction.id"
-            class="w-transaction"
-          >
-            <div class="w-transaction-type" ng-switch="transaction.type">
-              <svg ng-switch-when="DEBIT" class="w-icon w-color-green">
-                <use xlink:href="#lnr-plus-circle"></use>
-              </svg>
-
-              <svg ng-switch-when="CREDIT" class="w-icon w-color-red">
-                <use xlink:href="#lnr-circle-minus"></use>
-              </svg>
-            </div>
-
-            <div class="w-transaction-main">
-              <div class="w-transaction-reference">{{ transaction.reference }}</div>
-              <div class="w-transaction-date">{{ transaction.date | date:'short' }}</div>
-            </div>
-
-            <div class="w-transaction-right">
-              <div
-                class="w-transaction-balance"
-                ng-class="{'w-color-red': transaction.type === 'CREDIT', 'w-color-green': transaction.type === 'DEBIT'}"
-              >
-                {{ transaction.amount | currency}}
-              </div>
-              <div class="w-transaction-group">{{ transaction.group }}</div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
+  <!-- Add dummy svg to make Linear Icons load SVG sprite-->
+  <svg style="display: none"><use xlink:href="#linearicons"></use></svg>
   <script src="//cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
   <script src="../node_modules/angular/angular.js"></script>
 
   <script src="./app/wallet.module.js"></script>
   <script src="./app/wallet.service.js"></script>
-  <script src="./app/wallet.controller.js"></script>
+  <script src="./app/components/wallet/wallet.component.js"></script>
+  <script src="./app/components/cards/cards.component.js"></script>
+  <script src="./app/components/card/card.component.js"></script>
+  <script src="./app/components/add-card/add-card.component.js"></script>
+  <script src="./app/components/card-balance/card-balance.component.js"></script>
+  <script src="./app/components/transactions/transactions.component.js"></script>
+  <script src="./app/components/transaction/transaction.component.js"></script>
+  <script src="./app/components/transaction-type-icon/transaction-type-icon.component.js"></script>
+  <script src="./app/components/transaction-amount/transaction-amount.component.js"></script>
 </body>
 </html>

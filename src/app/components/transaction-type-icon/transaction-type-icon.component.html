@@ -1,0 +1,9 @@
+<div ng-switch="transaction.type">
+  <svg ng-switch-when="DEBIT" class="w-icon w-color-green">
+    <use xlink:href="#lnr-plus-circle"></use>
+  </svg>
+
+  <svg ng-switch-when="CREDIT" class="w-icon w-color-red">
+    <use xlink:href="#lnr-circle-minus"></use>
+  </svg>
+</div>

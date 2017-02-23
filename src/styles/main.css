@@ -155,15 +155,18 @@
   list-style: none;
 }
 
+.w-transactions-list-item {
+  border-bottom: 1px solid #b0b2b3;
+}
+
+.w-transactions-list-item:first-child {
+  border-top: 1px solid #b0b2b3;
+}
+
 .w-transaction {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #b0b2b3;
   padding: 20px 0;
-}
-
-.w-transaction:first-child {
-  border-top: 1px solid #b0b2b3;
 }
 
 .w-transaction-type {
