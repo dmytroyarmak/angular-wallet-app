@@ -1,16 +1,10 @@
-(function() {
-  'use strict';
+CardBalanceComponent.$inject = [];
+function CardBalanceComponent () {}
 
-  CardBalanceComponent.$inject = [];
-  function CardBalanceComponent () {}
-
-  angular
-    .module('wallet')
-    .component('wCardBalance', {
-      bindings: {
-        balance: '<'
-      },
-      controller: CardBalanceComponent,
-      templateUrl: './app/components/card-balance/card-balance.component.html'
-    });
-}());
+export default {
+  bindings: {
+    balance: '<'
+  },
+  controller: CardBalanceComponent,
+  templateUrl: './app/components/card-balance/card-balance.component.html'
+};

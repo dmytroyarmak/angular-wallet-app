@@ -1,5 +1,5 @@
-(function() {
-  'use strict';
+import angular from 'angular';
 
-  angular.bootstrap(document.body, ['wallet']);
-}());
+import WalletModule from './wallet.module';
+
+angular.bootstrap(document.body, [WalletModule]);
