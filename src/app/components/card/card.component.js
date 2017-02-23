@@ -9,6 +9,11 @@
     .directive('wCard', function() {
       return {
         restrict: 'E',
+        scope: {
+          card: '<',
+          isSelected: '<',
+          onSelect: '&'
+        },
         controller: CardComponent,
         templateUrl: './app/components/card/card.component.html'
       };

@@ -9,6 +9,9 @@
     .directive('wTransactionAmount', function() {
       return {
         restrict: 'E',
+        scope: {
+          transaction: '<'
+        },
         controller: TransactionAmountComponent,
         templateUrl: './app/components/transaction-amount/transaction-amount.component.html'
       };

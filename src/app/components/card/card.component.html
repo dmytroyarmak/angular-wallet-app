@@ -1,8 +1,8 @@
 <button
   type="button"
   class="w-card"
-  ng-class="{'w-card-active': card === selectedCard}"
-  ng-click="onSelectCard(card)"
+  ng-class="{'w-card-active': isSelected}"
+  ng-click="onSelect()"
 >
   <div class="w-card-type">{{ card.type }}</div>
   <img src="./media/visa-logo.svg" alt="VISA" class="w-card-logo">

@@ -2,11 +2,16 @@
   <div class="w-wallet">
     <div class="w-cards-container">
       <h2 class="w-title">My Wallet</h2>
-      <w-cards></w-cards>
+      <w-cards
+        cards="cards"
+        selected-card="selectedCard"
+        on-add-card="onAddCard()"
+        on-select-card="onSelectCard($event)"
+      ></w-cards>
     </div>
     <div class="w-transactions-container">
-      <w-card-balance></w-card-balance>
-      <w-transactions></w-transactions>
+      <w-card-balance balance="selectedCard.balance"></w-card-balance>
+      <w-transactions card="selectedCard"></w-transactions>
     </div>
   </div>
 </div>

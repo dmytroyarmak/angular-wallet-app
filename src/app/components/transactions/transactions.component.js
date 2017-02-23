@@ -5,9 +5,9 @@
   function TransactionsComponent ($scope, walletService) {
     $scope.transactions = null;
 
-    $scope.$watch('selectedCard', function(selectedCard) {
-      if (selectedCard) {
-        getTransactions(selectedCard);
+    $scope.$watch('card', function(card) {
+      if (card) {
+        getTransactions(card);
       }
     });
 
@@ -27,6 +27,9 @@
     .directive('wTransactions', function() {
       return {
         restrict: 'E',
+        scope: {
+          card: '<'
+        },
         controller: TransactionsComponent,
         templateUrl: './app/components/transactions/transactions.component.html'
       };

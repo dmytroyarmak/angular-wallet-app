@@ -1,5 +1,8 @@
 <div class="w-transaction">
-  <w-transaction-type-icon class="w-transaction-type"></w-transaction-type-icon>
+  <w-transaction-type-icon
+    class="w-transaction-type"
+    type="transaction.type"
+  ></w-transaction-type-icon>
 
   <div class="w-transaction-main">
     <div class="w-transaction-reference">{{ transaction.reference }}</div>
@@ -7,7 +10,7 @@
   </div>
 
   <div class="w-transaction-right">
-    <w-transaction-amount></w-transaction-amount>
+    <w-transaction-amount transaction="transaction"></w-transaction-amount>
     <div class="w-transaction-group">{{ transaction.group }}</div>
   </div>
 </div>

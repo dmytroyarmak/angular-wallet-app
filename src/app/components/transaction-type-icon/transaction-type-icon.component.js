@@ -9,6 +9,9 @@
     .directive('wTransactionTypeIcon', function() {
       return {
         restrict: 'E',
+        scope: {
+          type: '<'
+        },
         controller: TransactionTypeIconComponent,
         templateUrl: './app/components/transaction-type-icon/transaction-type-icon.component.html'
       };

@@ -5,7 +5,6 @@
   function WalletComponent ($scope, walletService) {
     $scope.cards = null;
     $scope.selectedCard = null;
-    $scope.cardAdded = false;
     $scope.onSelectCard = onSelectCard;
     $scope.onAddCard = onAddCard;
 
@@ -23,7 +22,6 @@
         .addCard()
         .then(function(card) {
           $scope.cards = $scope.cards.concat(card);
-          $scope.cardAdded = true;
         });
     }
 
@@ -39,6 +37,7 @@
     .directive('wWallet', function() {
       return {
         restrict: 'E',
+        scope: {},
         controller: WalletComponent,
         templateUrl: './app/components/wallet/wallet.component.html'
       };

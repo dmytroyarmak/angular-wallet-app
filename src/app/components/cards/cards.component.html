@@ -1,4 +1,13 @@
 <div class="w-cards">
-  <w-card ng-repeat="card in cards track by card.id"></w-card>
-  <w-add-card></w-add-card>
+  <w-card
+    ng-repeat="card in cards track by card.id"
+    card="card"
+    is-selected="card === selectedCard"
+    on-select="onSelectCard({$event: card})"
+  ></w-card>
+
+  <w-add-card
+    ng-if="!cardAdded"
+    on-add="hideButtonAndNotifyParent()"
+  ></w-add-card>
 </div>
