@@ -1,11 +1,17 @@
-CardsComponent.$inject = [];
-function CardsComponent () {
-  this.cardAdded = false;
-}
+class CardsComponent {
+  cards;
+  selectedCard;
+  onSelectCard;
+  onAddCard;
+  cardAdded = false;
 
-CardsComponent.prototype.hideButtonAndNotifyParent = function() {
-  this.cardAdded = true;
-  this.onAddCard();
+  static $inject = [];
+  constructor() {}
+
+  hideButtonAndNotifyParent() {
+    this.cardAdded = true;
+    this.onAddCard();
+  }
 }
 
 export default {

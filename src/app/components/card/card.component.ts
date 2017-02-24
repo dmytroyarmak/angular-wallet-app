@@ -1,5 +1,11 @@
-CardComponent.$inject = [];
-function CardComponent () {}
+class CardComponent {
+  card;
+  isSelected;
+  onSelect;
+
+  static $inject = [];
+  constructor() {}
+}
 
 export default {
   bindings: {

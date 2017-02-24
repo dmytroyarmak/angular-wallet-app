@@ -1,5 +1,9 @@
-TransactionComponent.$inject = [];
-function TransactionComponent () {}
+class TransactionComponent {
+  transaction;
+
+  static $inject = [];
+  constructor() {}
+}
 
 export default {
   bindings: {

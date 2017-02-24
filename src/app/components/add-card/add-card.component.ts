@@ -1,5 +1,9 @@
-AddCardComponent.$inject = [];
-function AddCardComponent () {}
+class AddCardComponent {
+  onAdd;
+
+  static $inject = [];
+  constructor() {}
+}
 
 export default {
   bindings: {

@@ -1,4 +1,4 @@
-import angular from 'angular';
+import {module} from 'angular';
 
 import WalletService from './wallet.service';
 import WalletComponent from './components/wallet/wallet.component';
@@ -11,8 +11,7 @@ import TransactionComponent from './components/transaction/transaction.component
 import TransactionTypeIconComponent from './components/transaction-type-icon/transaction-type-icon.component';
 import TransactionAmountComponent from './components/transaction-amount/transaction-amount.component';
 
-export default angular
-  .module('wallet', [])
+export default module('wallet', [])
   .service('walletService', WalletService)
   .component('wWallet', WalletComponent)
   .component('wCards', CardsComponent)

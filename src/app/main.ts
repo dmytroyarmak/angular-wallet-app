@@ -1,5 +1,5 @@
-import angular from 'angular';
+import {bootstrap} from 'angular';
 
 import WalletModule from './wallet.module';
 
-angular.bootstrap(document.body, [WalletModule]);
+bootstrap(document.body, [WalletModule]);

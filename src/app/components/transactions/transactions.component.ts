@@ -1,23 +1,23 @@
-TransactionsComponent.$inject = ['walletService'];
-function TransactionsComponent (walletService) {
-  this.walletService = walletService;
-  this.transactions = null;
-}
+class TransactionsComponent {
+  card;
+  transactions;
 
-TransactionsComponent.prototype.$onChanges = function(changes) {
-  if (changes.card && changes.card.currentValue) {
-    this.getTransactions(changes.card.currentValue);
+  static $inject = ['walletService'];
+  constructor(private walletService) {}
+
+  $onChanges(changes) {
+    if (changes.card && changes.card.currentValue) {
+      this.getTransactions(changes.card.currentValue);
+    }
   }
-};
 
-TransactionsComponent.prototype.getTransactions = function(card) {
-  var $ctrl = this;
-
-  this.walletService
-    .getTransactions(card.id)
-    .then(function(transactions) {
-      $ctrl.transactions = transactions;
-    });
+  getTransactions(card) {
+    this.walletService
+      .getTransactions(card.id)
+      .then((transactions) => {
+        this.transactions = transactions;
+      });
+  }
 }
 
 export default {

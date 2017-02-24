@@ -1,5 +1,9 @@
-TransactionTypeIconComponent.$inject = [];
-function TransactionTypeIconComponent () {}
+class TransactionTypeIconComponent {
+  type;
+
+  static $inject = [];
+  constructor() {}
+}
 
 export default {
   bindings: {

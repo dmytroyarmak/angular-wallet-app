@@ -1,5 +1,9 @@
-CardBalanceComponent.$inject = [];
-function CardBalanceComponent () {}
+class CardBalanceComponent {
+  balance;
+
+  static $inject = [];
+  constructor() {}
+}
 
 export default {
   bindings: {

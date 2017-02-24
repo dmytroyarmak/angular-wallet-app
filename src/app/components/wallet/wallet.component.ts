@@ -1,36 +1,33 @@
-WalletComponent.$inject = ['walletService'];
-function WalletComponent (walletService) {
-  this.walletService = walletService;
-  this.cards = null;
-  this.selectedCard = null;
-}
+class WalletComponent {
+  cards;
+  selectedCard;
 
-WalletComponent.prototype.$onInit = function() {
-  var $ctrl = this;
+  static $inject = ['walletService'];
+  constructor(private walletService) {}
 
-  this.walletService
-    .getCards()
-    .then(function(cards) {
-      $ctrl.cards = cards;
-      $ctrl.onSelectCard(cards[0]);
-    });
-};
-
-WalletComponent.prototype.onAddCard = function() {
-  var $ctrl = this;
-
-  this.walletService
-    .addCard()
-    .then(function(card) {
-      $ctrl.cards = $ctrl.cards.concat(card);
-    });
-};
-
-WalletComponent.prototype.onSelectCard = function(card) {
-  if (card !== this.selectedCard) {
-    this.selectedCard = card;
+  $onInit() {
+    this.walletService
+      .getCards()
+      .then((cards) => {
+        this.cards = cards;
+        this.onSelectCard(cards[0]);
+      });
   }
-};
+
+  onAddCard() {
+    this.walletService
+      .addCard()
+      .then((card) => {
+        this.cards = this.cards.concat(card);
+      });
+  }
+
+  onSelectCard(card) {
+    if (card !== this.selectedCard) {
+      this.selectedCard = card;
+    }
+  }
+}
 
 export default {
   bindings: {},
