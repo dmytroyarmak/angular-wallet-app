@@ -9,7 +9,7 @@ import CardBalanceComponent from './components/card-balance/card-balance.compone
 import TransactionsComponent from './components/transactions/transactions.component';
 import TransactionComponent from './components/transaction/transaction.component';
 import TransactionTypeIconComponent from './components/transaction-type-icon/transaction-type-icon.component';
-import TransactionAmountComponent from './components/transaction-amount/transaction-amount.component';
+import TransactionAmountComponentDowngraded from './components/transaction-amount/transaction-amount.component.downgraded';
 
 // Angular 2+ imports
 import {NgModule} from '@angular/core'
@@ -18,6 +18,7 @@ import {UpgradeModule, downgradeComponent} from '@angular/upgrade/static';
 import {CardsComponent} from './components/cards/cards.component';
 import {CardComponent} from './components/card/card.component';
 import {AddCardComponent} from './components/add-card/add-card.component';
+import {TransactionAmountComponent} from './components/transaction-amount/transaction-amount.component';
 
 // AngularJS 1 module
 module('wallet', [])
@@ -28,7 +29,7 @@ module('wallet', [])
   .component('wTransactions', TransactionsComponent)
   .component('wTransaction', TransactionComponent)
   .component('wTransactionTypeIcon', TransactionTypeIconComponent)
-  .component('wTransactionAmount', TransactionAmountComponent)
+  .directive('wTransactionAmount', TransactionAmountComponentDowngraded)
   .name;
 
 // Angular 2+ module
@@ -40,11 +41,12 @@ module('wallet', [])
   declarations: [
     AddCardComponent,
     CardsComponent,
-    CardComponent
+    CardComponent,
+    TransactionAmountComponent
   ],
   entryComponents: [
-    AddCardComponent,
-    CardsComponent
+    CardsComponent,
+    TransactionAmountComponent
   ]
 })
 export class WalletModule {
