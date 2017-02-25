@@ -1,16 +1,16 @@
 <div class="w-transaction">
   <w-transaction-type-icon
     class="w-transaction-type"
-    [type]="$ctrl.transaction.type"
+    [type]="transaction.type"
   ></w-transaction-type-icon>
 
   <div class="w-transaction-main">
-    <div class="w-transaction-reference">{{ $ctrl.transaction.reference }}</div>
-    <div class="w-transaction-date">{{ $ctrl.transaction.date | date:'short' }}</div>
+    <div class="w-transaction-reference">{{ transaction.reference }}</div>
+    <div class="w-transaction-date">{{ transaction.date | date:'short' }}</div>
   </div>
 
   <div class="w-transaction-right">
-    <w-transaction-amount [transaction]="$ctrl.transaction"></w-transaction-amount>
-    <div class="w-transaction-group">{{ $ctrl.transaction.group }}</div>
+    <w-transaction-amount [transaction]="transaction"></w-transaction-amount>
+    <div class="w-transaction-group">{{ transaction.group }}</div>
   </div>
 </div>

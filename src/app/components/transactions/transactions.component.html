@@ -4,6 +4,6 @@
     ng-repeat="transaction in $ctrl.transactions track by transaction.id"
     class="w-transactions-list-item"
   >
-    <w-transaction transaction="transaction"></w-transaction>
+    <w-transaction [transaction]="transaction"></w-transaction>
   </li>
 </ul>

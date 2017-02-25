@@ -1,18 +1,10 @@
-import {IComponentOptions} from 'angular';
+import {Component, Input} from '@angular/core';
 import {ITransaction} from '../../wallet.service';
-import transactionTemplate from './transaction.component.html';
 
-class TransactionComponent {
-  public transaction: ITransaction;
-
-  static $inject: string[] = [];
-  constructor() {}
+@Component({
+  selector: 'w-transaction',
+  templateUrl: './transaction.component.html'
+})
+export class TransactionComponent {
+  @Input() public transaction: ITransaction;
 }
-
-export default {
-  bindings: {
-    transaction: '<'
-  },
-  controller: TransactionComponent,
-  template: transactionTemplate
-} as IComponentOptions;

@@ -1,7 +1,7 @@
 import {downgradeComponent} from '@angular/upgrade/static';
-import {TransactionAmountComponent} from './transaction-amount.component';
+import {TransactionComponent} from './transaction.component';
 
 export default downgradeComponent({
-    component: TransactionAmountComponent,
+    component: TransactionComponent,
     inputs: ['transaction']
 });
