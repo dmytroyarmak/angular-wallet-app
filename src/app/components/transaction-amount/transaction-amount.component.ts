@@ -1,7 +1,10 @@
-class TransactionAmountComponent {
-  transaction;
+import {IComponentOptions} from 'angular';
+import {ITransaction} from '../../wallet.service';
 
-  static $inject = [];
+class TransactionAmountComponent {
+  public transaction: ITransaction;
+
+  static $inject: string[] = [];
   constructor() {}
 }
 
@@ -11,4 +14,4 @@ export default {
   },
   controller: TransactionAmountComponent,
   templateUrl: './app/components/transaction-amount/transaction-amount.component.html'
-};
+} as IComponentOptions;

@@ -1,11 +1,14 @@
-class CardsComponent {
-  cards;
-  selectedCard;
-  onSelectCard;
-  onAddCard;
-  cardAdded = false;
+import {IComponentOptions} from 'angular';
+import {ICard} from '../../wallet.service';
 
-  static $inject = [];
+class CardsComponent {
+  public cards: ICard[];
+  public selectedCard: ICard;
+  public onSelectCard: Function;
+  public onAddCard: Function;
+  public cardAdded = false;
+
+  static $inject: string[] = [];
   constructor() {}
 
   hideButtonAndNotifyParent() {
@@ -23,4 +26,4 @@ export default {
   },
   controller: CardsComponent,
   templateUrl: './app/components/cards/cards.component.html'
-};
+} as IComponentOptions;

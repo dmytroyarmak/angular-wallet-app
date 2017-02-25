@@ -1,7 +1,10 @@
-class TransactionTypeIconComponent {
-  type;
+import {IComponentOptions} from 'angular';
+import {TransactionType} from '../../wallet.service';
 
-  static $inject = [];
+class TransactionTypeIconComponent {
+  public type: TransactionType;
+
+  static $inject: string[] = [];
   constructor() {}
 }
 
@@ -11,4 +14,4 @@ export default {
   },
   controller: TransactionTypeIconComponent,
   templateUrl: './app/components/transaction-type-icon/transaction-type-icon.component.html'
-};
+} as IComponentOptions;

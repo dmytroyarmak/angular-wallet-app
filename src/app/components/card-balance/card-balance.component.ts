@@ -1,7 +1,9 @@
-class CardBalanceComponent {
-  balance;
+import {IComponentOptions} from 'angular';
 
-  static $inject = [];
+class CardBalanceComponent {
+  public balance: number;
+
+  static $inject: string[] = [];
   constructor() {}
 }
 
@@ -11,4 +13,4 @@ export default {
   },
   controller: CardBalanceComponent,
   templateUrl: './app/components/card-balance/card-balance.component.html'
-};
+} as IComponentOptions;

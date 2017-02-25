@@ -1,7 +1,9 @@
-class AddCardComponent {
-  onAdd;
+import {IComponentOptions} from 'angular';
 
-  static $inject = [];
+class AddCardComponent {
+  public onAdd: Function;
+
+  static $inject: string[] = [];
   constructor() {}
 }
 
@@ -11,4 +13,4 @@ export default {
   },
   controller: AddCardComponent,
   templateUrl: './app/components/add-card/add-card.component.html'
-};
+} as IComponentOptions;

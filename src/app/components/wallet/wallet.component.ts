@@ -1,9 +1,12 @@
+import {IComponentOptions} from 'angular';
+import {ICard, WalletService} from '../../wallet.service';
+
 class WalletComponent {
-  cards;
-  selectedCard;
+  public cards: ICard[];
+  public selectedCard: ICard;
 
   static $inject = ['walletService'];
-  constructor(private walletService) {}
+  constructor(private walletService: WalletService) {}
 
   $onInit() {
     this.walletService
@@ -22,7 +25,7 @@ class WalletComponent {
       });
   }
 
-  onSelectCard(card) {
+  onSelectCard(card: ICard) {
     if (card !== this.selectedCard) {
       this.selectedCard = card;
     }
@@ -33,4 +36,4 @@ export default {
   bindings: {},
   controller: WalletComponent,
   templateUrl: './app/components/wallet/wallet.component.html'
-};
+} as IComponentOptions;
