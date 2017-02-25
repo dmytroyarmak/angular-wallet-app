@@ -8,6 +8,6 @@
 
   <w-add-card
     ng-if="!$ctrl.cardAdded"
-    on-add="$ctrl.hideButtonAndNotifyParent()"
+    (add)="$ctrl.hideButtonAndNotifyParent()"
   ></w-add-card>
 </div>

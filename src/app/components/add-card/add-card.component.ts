@@ -1,17 +1,9 @@
-import {IComponentOptions} from 'angular';
-import addCardTemplate from './add-card.component.html';
+import {Component, Output, EventEmitter} from '@angular/core';
 
-class AddCardComponent {
-  public onAdd: Function;
-
-  static $inject: string[] = [];
-  constructor() {}
+@Component({
+  selector: 'w-add-card',
+  templateUrl: './add-card.component.html'
+})
+export class AddCardComponent {
+  @Output() public add = new EventEmitter();
 }
-
-export default {
-  bindings: {
-    onAdd: '&'
-  },
-  controller: AddCardComponent,
-  template: addCardTemplate
-} as IComponentOptions;
