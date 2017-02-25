@@ -12,7 +12,7 @@ class WalletComponent {
   $onInit() {
     this.walletService
       .getCards()
-      .then((cards) => {
+      .subscribe((cards) => {
         this.cards = cards;
         this.onSelectCard(cards[0]);
       });
@@ -21,7 +21,7 @@ class WalletComponent {
   onAddCard() {
     this.walletService
       .addCard()
-      .then((card) => {
+      .subscribe((card) => {
         this.cards = this.cards.concat(card);
       });
   }

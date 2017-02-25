@@ -1,4 +1,4 @@
-import {Component, OnChanges, Input, Inject, SimpleChanges} from '@angular/core';
+import {Component, OnChanges, Input, SimpleChanges} from '@angular/core';
 import {ICard, ITransaction, WalletService} from '../../wallet.service';
 
 @Component({
@@ -9,7 +9,7 @@ export class TransactionsComponent implements OnChanges {
   @Input() public card: ICard;
   public transactions: ITransaction[];
 
-  constructor(@Inject('walletService') private walletService: WalletService) {}
+  constructor(private walletService: WalletService) {}
 
   ngOnChanges(changes: SimpleChanges) {
     const cardChanges = changes['card'];
@@ -25,7 +25,7 @@ export class TransactionsComponent implements OnChanges {
   getTransactions(card: ICard) {
     this.walletService
       .getTransactions(card.id)
-      .then((transactions) => {
+      .subscribe((transactions) => {
         this.transactions = transactions;
       });
   }

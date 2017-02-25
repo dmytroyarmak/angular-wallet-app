@@ -1,4 +1,7 @@
-import {IHttpService, IPromise} from 'angular';
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http'
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 export type CardType = 'DEBIT' | 'CREDIT';
 export interface ICard {
@@ -18,27 +21,25 @@ export interface ITransaction {
   amount: number;
 }
 
+@Injectable()
 export class WalletService {
-  static $inject = ['$http'];
-  constructor(private $http: IHttpService) {}
+  constructor(private http: Http) {}
 
-  getCards(): IPromise<ICard[]> {
-    return this.$http
+  getCards(): Observable<ICard[]> {
+    return this.http
       .get('./data/cards.json')
-      .then(responce => responce.data);
-  };
+      .map(responce => responce.json());
+  }
 
-  addCard(): IPromise<ICard> {
-    return this.$http
+  addCard(): Observable<ICard> {
+    return this.http
       .get('./data/cards/add.json')
-      .then(responce => responce.data);
-  };
+      .map(responce => responce.json());
+  }
 
-  getTransactions(cardId: number): IPromise<ITransaction[]> {
-    return this.$http
+  getTransactions(cardId: number): Observable<ITransaction[]> {
+    return this.http
       .get(`./data/cards/${cardId}/transactions.json`)
-      .then(responce => responce.data);
-  };
+      .map(responce => responce.json());
+  }
 }
-
-export default WalletService;

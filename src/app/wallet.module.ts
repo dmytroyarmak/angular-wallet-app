@@ -2,7 +2,6 @@
 // AngularJS 1 imports
 import {module} from 'angular';
 
-import WalletService from './wallet.service';
 import WalletComponent from './components/wallet/wallet.component';
 import CardsComponentDowngraded from './components/cards/cards.component.downgraded';
 import CardBalanceComponentDowngraded from './components/card-balance/card-balance.component.downgraded';
@@ -11,8 +10,9 @@ import TransactionsComponentDowngraded from './components/transactions/transacti
 // Angular 2+ imports
 import {NgModule} from '@angular/core'
 import {BrowserModule} from '@angular/platform-browser';
-import {UpgradeModule} from '@angular/upgrade/static';
-import {walletServiceProvider} from './wallet.service.upgraded';
+import {HttpModule} from '@angular/http';
+import {UpgradeModule, downgradeInjectable} from '@angular/upgrade/static';
+import {WalletService} from './wallet.service';
 import {CardsComponent} from './components/cards/cards.component';
 import {CardComponent} from './components/card/card.component';
 import {AddCardComponent} from './components/add-card/add-card.component';
@@ -24,7 +24,7 @@ import {TransactionTypeIconComponent} from './components/transaction-type-icon/t
 
 // AngularJS 1 module
 module('wallet', [])
-  .service('walletService', WalletService)
+  .factory('walletService', downgradeInjectable(WalletService))
   .component('wWallet', WalletComponent)
   .directive('wCards', CardsComponentDowngraded)
   .directive('wCardBalance', CardBalanceComponentDowngraded)
@@ -35,10 +35,11 @@ module('wallet', [])
 @NgModule({
   imports: [
     BrowserModule,
+    HttpModule,
     UpgradeModule
   ],
   providers: [
-    walletServiceProvider
+    WalletService
   ],
   declarations: [
     AddCardComponent,
