@@ -1,17 +1,9 @@
-import {IComponentOptions} from 'angular';
-import cardBalanceTemplate from './card-balance.component.html';
+import {Component, Input} from '@angular/core';
 
-class CardBalanceComponent {
-  public balance: number;
-
-  static $inject: string[] = [];
-  constructor() {}
+@Component({
+  selector: 'w-card-balance',
+  templateUrl: './card-balance.component.html'
+})
+export class CardBalanceComponent {
+  @Input() public balance: number;
 }
-
-export default {
-  bindings: {
-    balance: '<'
-  },
-  controller: CardBalanceComponent,
-  template: cardBalanceTemplate
-} as IComponentOptions;

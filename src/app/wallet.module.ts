@@ -5,7 +5,7 @@ import {module} from 'angular';
 import WalletService from './wallet.service';
 import WalletComponent from './components/wallet/wallet.component';
 import CardsComponentDowngraded from './components/cards/cards.component.downgraded';
-import CardBalanceComponent from './components/card-balance/card-balance.component';
+import CardBalanceComponentDowngraded from './components/card-balance/card-balance.component.downgraded';
 import TransactionsComponentDowngraded from './components/transactions/transactions.component.downgraded';
 
 // Angular 2+ imports
@@ -16,6 +16,7 @@ import {walletServiceProvider} from './wallet.service.upgraded';
 import {CardsComponent} from './components/cards/cards.component';
 import {CardComponent} from './components/card/card.component';
 import {AddCardComponent} from './components/add-card/add-card.component';
+import {CardBalanceComponent} from './components/card-balance/card-balance.component';
 import {TransactionsComponent} from './components/transactions/transactions.component';
 import {TransactionComponent} from './components/transaction/transaction.component';
 import {TransactionAmountComponent} from './components/transaction-amount/transaction-amount.component';
@@ -26,7 +27,7 @@ module('wallet', [])
   .service('walletService', WalletService)
   .component('wWallet', WalletComponent)
   .directive('wCards', CardsComponentDowngraded)
-  .component('wCardBalance', CardBalanceComponent)
+  .directive('wCardBalance', CardBalanceComponentDowngraded)
   .directive('wTransactions', TransactionsComponentDowngraded)
   .name;
 
@@ -43,6 +44,7 @@ module('wallet', [])
     AddCardComponent,
     CardsComponent,
     CardComponent,
+    CardBalanceComponent,
     TransactionsComponent,
     TransactionComponent,
     TransactionAmountComponent,
@@ -50,6 +52,7 @@ module('wallet', [])
   ],
   entryComponents: [
     CardsComponent,
+    CardBalanceComponent,
     TransactionsComponent
   ]
 })
