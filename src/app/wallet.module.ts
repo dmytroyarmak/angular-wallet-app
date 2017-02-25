@@ -8,7 +8,7 @@ import CardsComponentDowngraded from './components/cards/cards.component.downgra
 import CardBalanceComponent from './components/card-balance/card-balance.component';
 import TransactionsComponent from './components/transactions/transactions.component';
 import TransactionComponent from './components/transaction/transaction.component';
-import TransactionTypeIconComponent from './components/transaction-type-icon/transaction-type-icon.component';
+import TransactionTypeIconComponentDowngraded from './components/transaction-type-icon/transaction-type-icon.component.downgraded';
 import TransactionAmountComponentDowngraded from './components/transaction-amount/transaction-amount.component.downgraded';
 
 // Angular 2+ imports
@@ -19,6 +19,7 @@ import {CardsComponent} from './components/cards/cards.component';
 import {CardComponent} from './components/card/card.component';
 import {AddCardComponent} from './components/add-card/add-card.component';
 import {TransactionAmountComponent} from './components/transaction-amount/transaction-amount.component';
+import {TransactionTypeIconComponent} from './components/transaction-type-icon/transaction-type-icon.component';
 
 // AngularJS 1 module
 module('wallet', [])
@@ -28,7 +29,7 @@ module('wallet', [])
   .component('wCardBalance', CardBalanceComponent)
   .component('wTransactions', TransactionsComponent)
   .component('wTransaction', TransactionComponent)
-  .component('wTransactionTypeIcon', TransactionTypeIconComponent)
+  .directive('wTransactionTypeIcon', TransactionTypeIconComponentDowngraded)
   .directive('wTransactionAmount', TransactionAmountComponentDowngraded)
   .name;
 
@@ -42,11 +43,13 @@ module('wallet', [])
     AddCardComponent,
     CardsComponent,
     CardComponent,
-    TransactionAmountComponent
+    TransactionAmountComponent,
+    TransactionTypeIconComponent
   ],
   entryComponents: [
     CardsComponent,
-    TransactionAmountComponent
+    TransactionAmountComponent,
+    TransactionTypeIconComponent
   ]
 })
 export class WalletModule {

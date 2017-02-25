@@ -1,18 +1,10 @@
-import {IComponentOptions} from 'angular';
+import {Component, Input} from '@angular/core';
 import {TransactionType} from '../../wallet.service';
-import transactionTypeIconTemplate from './transaction-type-icon.component.html';
 
-class TransactionTypeIconComponent {
-  public type: TransactionType;
-
-  static $inject: string[] = [];
-  constructor() {}
+@Component({
+  selector: 'w-transaction-type-icon',
+  templateUrl: './transaction-type-icon.component.html'
+})
+export class TransactionTypeIconComponent {
+  @Input() public type: TransactionType;
 }
-
-export default {
-  bindings: {
-    type: '<'
-  },
-  controller: TransactionTypeIconComponent,
-  template: transactionTypeIconTemplate
-} as IComponentOptions;
