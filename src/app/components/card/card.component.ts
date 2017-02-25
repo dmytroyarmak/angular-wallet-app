@@ -1,22 +1,12 @@
-import {IComponentOptions} from 'angular';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {ICard} from '../../wallet.service';
-import cardTemplate from './card.component.html';
 
-class CardComponent {
-  public card: ICard;
-  public isSelected: boolean;
-  public onSelect: Function;
-
-  static $inject: string[] = [];
-  constructor() {}
+@Component({
+  selector: 'w-card',
+  templateUrl: './card.component.html'
+})
+export class CardComponent {
+  @Input() public card: ICard;
+  @Input() public isSelected: boolean;
+  @Output() public select = new EventEmitter();
 }
-
-export default {
-  bindings: {
-    card: '<',
-    isSelected: '<',
-    onSelect: '&'
-  },
-  controller: CardComponent,
-  template: cardTemplate
-} as IComponentOptions;

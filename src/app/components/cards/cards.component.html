@@ -3,7 +3,7 @@
     *ngFor="let card of cards; trackBy: getCardId"
     [card]="card"
     [isSelected]="card === selectedCard"
-    (onSelect)="selectCard.next(card)"
+    (select)="selectCard.next(card)"
   ></w-card>
 
   <w-add-card

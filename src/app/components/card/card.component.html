@@ -1,10 +1,10 @@
 <button
   type="button"
   class="w-card"
-  ng-class="{'w-card-active': $ctrl.isSelected}"
-  ng-click="$ctrl.onSelect()"
+  [ngClass]="{'w-card-active': isSelected}"
+  (click)="select.next()"
 >
-  <div class="w-card-type">{{ $ctrl.card.type }}</div>
+  <div class="w-card-type">{{ card.type }}</div>
   <img src="./media/visa-logo.svg" alt="VISA" class="w-card-logo">
-  <div class="w-card-number">{{ $ctrl.card.cardNumber }}</div>
+  <div class="w-card-number">{{ card.cardNumber }}</div>
 </button>
