@@ -1,7 +1,7 @@
 <h3 class="w-subtitle">Transactions</h3>
 <ul class="w-transactions-list">
   <li
-    ng-repeat="transaction in $ctrl.transactions track by transaction.id"
+    *ngFor="let transaction of transactions; trackBy: getTransactionId"
     class="w-transactions-list-item"
   >
     <w-transaction [transaction]="transaction"></w-transaction>

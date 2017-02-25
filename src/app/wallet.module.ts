@@ -6,16 +6,17 @@ import WalletService from './wallet.service';
 import WalletComponent from './components/wallet/wallet.component';
 import CardsComponentDowngraded from './components/cards/cards.component.downgraded';
 import CardBalanceComponent from './components/card-balance/card-balance.component';
-import TransactionsComponent from './components/transactions/transactions.component';
-import TransactionComponentDowngraded from './components/transaction/transaction.component.downgraded';
+import TransactionsComponentDowngraded from './components/transactions/transactions.component.downgraded';
 
 // Angular 2+ imports
 import {NgModule} from '@angular/core'
 import {BrowserModule} from '@angular/platform-browser';
-import {UpgradeModule, downgradeComponent} from '@angular/upgrade/static';
+import {UpgradeModule} from '@angular/upgrade/static';
+import {walletServiceProvider} from './wallet.service.upgraded';
 import {CardsComponent} from './components/cards/cards.component';
 import {CardComponent} from './components/card/card.component';
 import {AddCardComponent} from './components/add-card/add-card.component';
+import {TransactionsComponent} from './components/transactions/transactions.component';
 import {TransactionComponent} from './components/transaction/transaction.component';
 import {TransactionAmountComponent} from './components/transaction-amount/transaction-amount.component';
 import {TransactionTypeIconComponent} from './components/transaction-type-icon/transaction-type-icon.component';
@@ -26,8 +27,7 @@ module('wallet', [])
   .component('wWallet', WalletComponent)
   .directive('wCards', CardsComponentDowngraded)
   .component('wCardBalance', CardBalanceComponent)
-  .component('wTransactions', TransactionsComponent)
-  .directive('wTransaction', TransactionComponentDowngraded)
+  .directive('wTransactions', TransactionsComponentDowngraded)
   .name;
 
 // Angular 2+ module
@@ -36,17 +36,21 @@ module('wallet', [])
     BrowserModule,
     UpgradeModule
   ],
+  providers: [
+    walletServiceProvider
+  ],
   declarations: [
     AddCardComponent,
     CardsComponent,
     CardComponent,
+    TransactionsComponent,
     TransactionComponent,
     TransactionAmountComponent,
     TransactionTypeIconComponent
   ],
   entryComponents: [
     CardsComponent,
-    TransactionComponent
+    TransactionsComponent
   ]
 })
 export class WalletModule {

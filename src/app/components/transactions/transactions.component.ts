@@ -1,19 +1,25 @@
-import {IComponentOptions, IOnChangesObject, IChangesObject} from 'angular';
+import {Component, OnChanges, Input, Inject, SimpleChanges} from '@angular/core';
 import {ICard, ITransaction, WalletService} from '../../wallet.service';
-import transactionsTemplate from './transactions.component.html';
 
-class TransactionsComponent {
-  public card: ICard;
+@Component({
+  selector: 'w-transactions',
+  templateUrl: './transactions.component.html'
+})
+export class TransactionsComponent implements OnChanges {
+  @Input() public card: ICard;
   public transactions: ITransaction[];
 
-  static $inject = ['walletService'];
-  constructor(private walletService: WalletService) {}
+  constructor(@Inject('walletService') private walletService: WalletService) {}
 
-  $onChanges(changes: IOnChangesObject) {
-    const cardChanges = changes['card'] as IChangesObject<ICard>;
+  ngOnChanges(changes: SimpleChanges) {
+    const cardChanges = changes['card'];
     if (cardChanges && cardChanges.currentValue) {
       this.getTransactions(cardChanges.currentValue);
     }
+  }
+
+  getTransactionId(index: number, transaction: ITransaction) {
+    return transaction.id;
   }
 
   getTransactions(card: ICard) {
@@ -24,11 +30,3 @@ class TransactionsComponent {
       });
   }
 }
-
-export default {
-  bindings: {
-    card: '<'
-  },
-  controller: TransactionsComponent,
-  template: transactionsTemplate
-} as IComponentOptions;
