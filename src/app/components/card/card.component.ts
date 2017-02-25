@@ -1,9 +1,10 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 import {ICard} from '../../wallet.service';
 
 @Component({
   selector: 'w-card',
-  templateUrl: './card.component.html'
+  templateUrl: './card.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardComponent {
   @Input() public card: ICard;

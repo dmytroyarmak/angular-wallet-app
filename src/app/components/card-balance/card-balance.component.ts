@@ -1,8 +1,9 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
   selector: 'w-card-balance',
-  templateUrl: './card-balance.component.html'
+  templateUrl: './card-balance.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardBalanceComponent {
   @Input() public balance: number;

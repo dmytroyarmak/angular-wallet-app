@@ -1,7 +1,4 @@
-declare module '*.html' {
-  const content: string;
-  export default content;
-}
+declare const process: any;
 
 // Declare 'require' function to fix errors with
 // angular2-template-loader + ts-loader
