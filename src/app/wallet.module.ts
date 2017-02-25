@@ -1,4 +1,4 @@
-import {module} from 'angular';
+import {module, ICompileProvider} from 'angular';
 
 import WalletService from './wallet.service';
 import WalletComponent from './components/wallet/wallet.component';
@@ -12,6 +12,11 @@ import TransactionTypeIconComponent from './components/transaction-type-icon/tra
 import TransactionAmountComponent from './components/transaction-amount/transaction-amount.component';
 
 export default module('wallet', [])
+  .config(['$compileProvider', function ($compileProvider: ICompileProvider) {
+    $compileProvider.debugInfoEnabled(false);
+    $compileProvider.commentDirectivesEnabled(false);
+    $compileProvider.cssClassDirectivesEnabled(false);
+  }])
   .service('walletService', WalletService)
   .component('wWallet', WalletComponent)
   .component('wCards', CardsComponent)

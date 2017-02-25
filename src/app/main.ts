@@ -2,4 +2,4 @@ import {bootstrap} from 'angular';
 
 import WalletModule from './wallet.module';
 
-bootstrap(document.body, [WalletModule]);
+bootstrap(document.body, [WalletModule], {strictDi: true});

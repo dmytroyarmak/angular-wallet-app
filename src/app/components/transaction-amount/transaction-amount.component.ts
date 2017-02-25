@@ -1,5 +1,6 @@
 import {IComponentOptions} from 'angular';
 import {ITransaction} from '../../wallet.service';
+import transactionAmountTemplate from './transaction-amount.component.html';
 
 class TransactionAmountComponent {
   public transaction: ITransaction;
@@ -13,5 +14,5 @@ export default {
     transaction: '<'
   },
   controller: TransactionAmountComponent,
-  templateUrl: './app/components/transaction-amount/transaction-amount.component.html'
+  template: transactionAmountTemplate
 } as IComponentOptions;

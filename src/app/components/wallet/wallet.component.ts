@@ -1,5 +1,6 @@
 import {IComponentOptions} from 'angular';
 import {ICard, WalletService} from '../../wallet.service';
+import walletTemplate from './wallet.component.html';
 
 class WalletComponent {
   public cards: ICard[];
@@ -35,5 +36,5 @@ class WalletComponent {
 export default {
   bindings: {},
   controller: WalletComponent,
-  templateUrl: './app/components/wallet/wallet.component.html'
+  template: walletTemplate
 } as IComponentOptions;

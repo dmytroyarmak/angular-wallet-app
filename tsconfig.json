@@ -4,7 +4,9 @@
       "noImplicitAny": true,
       "noImplicitReturns": true,
       "noImplicitThis": true,
-      "strictNullChecks": true
+      "strictNullChecks": true,
+      "allowUnreachableCode": true,
+      "module": "es2015"
   },
   "include": [
       "src/**/*"
