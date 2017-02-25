@@ -1,4 +1,5 @@
 import {IComponentOptions} from 'angular';
+import addCardTemplate from './add-card.component.html';
 
 class AddCardComponent {
   public onAdd: Function;
@@ -12,5 +13,5 @@ export default {
     onAdd: '&'
   },
   controller: AddCardComponent,
-  templateUrl: './app/components/add-card/add-card.component.html'
+  template: addCardTemplate
 } as IComponentOptions;

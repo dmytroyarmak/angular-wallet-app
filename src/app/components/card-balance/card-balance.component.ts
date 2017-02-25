@@ -1,4 +1,5 @@
 import {IComponentOptions} from 'angular';
+import cardBalanceTemplate from './card-balance.component.html';
 
 class CardBalanceComponent {
   public balance: number;
@@ -12,5 +13,5 @@ export default {
     balance: '<'
   },
   controller: CardBalanceComponent,
-  templateUrl: './app/components/card-balance/card-balance.component.html'
+  template: cardBalanceTemplate
 } as IComponentOptions;

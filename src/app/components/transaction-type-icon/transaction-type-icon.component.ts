@@ -1,5 +1,6 @@
 import {IComponentOptions} from 'angular';
 import {TransactionType} from '../../wallet.service';
+import transactionTypeIconTemplate from './transaction-type-icon.component.html';
 
 class TransactionTypeIconComponent {
   public type: TransactionType;
@@ -13,5 +14,5 @@ export default {
     type: '<'
   },
   controller: TransactionTypeIconComponent,
-  templateUrl: './app/components/transaction-type-icon/transaction-type-icon.component.html'
+  template: transactionTypeIconTemplate
 } as IComponentOptions;

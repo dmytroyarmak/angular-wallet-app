@@ -1,5 +1,6 @@
 import {IComponentOptions, IOnChangesObject, IChangesObject} from 'angular';
 import {ICard, ITransaction, WalletService} from '../../wallet.service';
+import transactionsTemplate from './transactions.component.html';
 
 class TransactionsComponent {
   public card: ICard;
@@ -29,5 +30,5 @@ export default {
     card: '<'
   },
   controller: TransactionsComponent,
-  templateUrl: './app/components/transactions/transactions.component.html'
+  template: transactionsTemplate
 } as IComponentOptions;
