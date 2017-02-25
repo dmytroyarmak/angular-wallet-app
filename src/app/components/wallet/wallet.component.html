@@ -3,15 +3,15 @@
     <div class="w-cards-container">
       <h2 class="w-title">My Wallet</h2>
       <w-cards
-        [cards]="$ctrl.cards"
-        [selected-card]="$ctrl.selectedCard"
-        (add-card)="$ctrl.onAddCard()"
-        (select-card)="$ctrl.onSelectCard($event)"
+        [cards]="cards"
+        [selectedCard]="selectedCard"
+        (addCard)="onAddCard()"
+        (selectCard)="onSelectCard($event)"
       ></w-cards>
     </div>
     <div class="w-transactions-container">
-      <w-card-balance [balance]="$ctrl.selectedCard.balance"></w-card-balance>
-      <w-transactions [card]="$ctrl.selectedCard"></w-transactions>
+      <w-card-balance [balance]="selectedCard?.balance"></w-card-balance>
+      <w-transactions [card]="selectedCard"></w-transactions>
     </div>
   </div>
 </div>

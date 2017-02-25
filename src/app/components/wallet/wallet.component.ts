@@ -1,15 +1,17 @@
-import {IComponentOptions} from 'angular';
+import {Component, OnInit} from '@angular/core';
 import {ICard, WalletService} from '../../wallet.service';
-import walletTemplate from './wallet.component.html';
 
-class WalletComponent {
+@Component({
+  selector: 'w-wallet',
+  templateUrl: './wallet.component.html'
+})
+export class WalletComponent implements OnInit {
   public cards: ICard[];
   public selectedCard: ICard;
 
-  static $inject = ['walletService'];
   constructor(private walletService: WalletService) {}
 
-  $onInit() {
+  ngOnInit() {
     this.walletService
       .getCards()
       .subscribe((cards) => {
@@ -32,9 +34,3 @@ class WalletComponent {
     }
   }
 }
-
-export default {
-  bindings: {},
-  controller: WalletComponent,
-  template: walletTemplate
-} as IComponentOptions;
