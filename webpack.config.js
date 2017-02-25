@@ -23,7 +23,10 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        loader: 'ts-loader'
+        use: [
+          'ts-loader',
+          'angular2-template-loader'
+        ]
       },
       {
         test: /\.html$/,
