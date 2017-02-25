@@ -3,10 +3,10 @@
     <div class="w-cards-container">
       <h2 class="w-title">My Wallet</h2>
       <w-cards
-        cards="$ctrl.cards"
-        selected-card="$ctrl.selectedCard"
-        on-add-card="$ctrl.onAddCard()"
-        on-select-card="$ctrl.onSelectCard($event)"
+        [cards]="$ctrl.cards"
+        [selected-card]="$ctrl.selectedCard"
+        (add-card)="$ctrl.onAddCard()"
+        (select-card)="$ctrl.onSelectCard($event)"
       ></w-cards>
     </div>
     <div class="w-transactions-container">

@@ -1,30 +1,23 @@
-import {IComponentOptions} from 'angular';
+import {Component, Input, Output, EventEmitter, TrackByFn} from '@angular/core';
 import {ICard} from '../../wallet.service';
-import cardsTemplate from './cards.component.html';
 
-class CardsComponent {
-  public cards: ICard[];
-  public selectedCard: ICard;
-  public onSelectCard: Function;
-  public onAddCard: Function;
+@Component({
+  selector: 'w-cards',
+  templateUrl: './cards.component.html'
+})
+export class CardsComponent {
+  @Input() public cards: ICard[];
+  @Input() public selectedCard: ICard;
+  @Output() public selectCard: EventEmitter<ICard> = new EventEmitter();
+  @Output() public addCard = new EventEmitter();
   public cardAdded = false;
-
-  static $inject: string[] = [];
-  constructor() {}
 
   hideButtonAndNotifyParent() {
     this.cardAdded = true;
-    this.onAddCard();
+    this.addCard.next();
+  }
+
+  getCardId(index: number, card: ICard) {
+    return card.id;
   }
 }
-
-export default {
-  bindings: {
-    cards: '<',
-    selectedCard: '<',
-    onSelectCard: '&',
-    onAddCard: '&'
-  },
-  controller: CardsComponent,
-  template: cardsTemplate
-} as IComponentOptions;

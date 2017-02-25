@@ -1,13 +1,13 @@
 <div class="w-cards">
   <w-card
-    ng-repeat="card in $ctrl.cards track by card.id"
-    card="card"
-    is-selected="card === $ctrl.selectedCard"
-    on-select="$ctrl.onSelectCard({$event: card})"
+    *ngFor="let card of cards; trackBy: getCardId"
+    [card]="card"
+    [isSelected]="card === selectedCard"
+    (onSelect)="selectCard.next(card)"
   ></w-card>
 
   <w-add-card
-    ng-if="!$ctrl.cardAdded"
-    (add)="$ctrl.hideButtonAndNotifyParent()"
+    *ngIf="!cardAdded"
+    (add)="hideButtonAndNotifyParent()"
   ></w-add-card>
 </div>
