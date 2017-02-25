@@ -11,7 +11,7 @@ import TransactionComponent from './components/transaction/transaction.component
 import TransactionTypeIconComponent from './components/transaction-type-icon/transaction-type-icon.component';
 import TransactionAmountComponent from './components/transaction-amount/transaction-amount.component';
 
-export default module('wallet', [])
+module('wallet', [])
   .service('walletService', WalletService)
   .component('wWallet', WalletComponent)
   .component('wCards', CardsComponent)
@@ -23,3 +23,17 @@ export default module('wallet', [])
   .component('wTransactionTypeIcon', TransactionTypeIconComponent)
   .component('wTransactionAmount', TransactionAmountComponent)
   .name;
+
+import {NgModule} from '@angular/core'
+import {BrowserModule} from '@angular/platform-browser';
+import {UpgradeModule} from '@angular/upgrade/static';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    UpgradeModule
+  ]
+})
+export class WalletModule {
+  ngDoBootstrap() {}
+}

@@ -14,6 +14,7 @@ module.exports = {
     extensions: ['.ts', '.js']
   },
   module: {
+    exprContextCritical: false,
     rules: [
       {
         test: /\.js$/,
